@@ -1,7 +1,11 @@
 package main
 
-import "fmt"
+import (
+	"groupie-tracker/routes"
+	temp "groupie-tracker/templates"
+)
 
 func main() {
-	fmt.Println("hellow world")
-} 
+	temp.InitTemplates()
+	routes.InitServe()
+}
