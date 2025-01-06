@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Papery</title>
+  <title>Papery: Discover Unique Wallpapers</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
@@ -102,6 +102,15 @@
     transform: scaleX(1);
   }
 
+  hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #000000;
+    margin: 1em 50px;
+    padding: 0;
+}
+
   .qoute-container {
     display: flex;
     justify-content: center;
@@ -117,6 +126,23 @@
     text-align: center;
     line-height: 40px;
   }
+
+  .description-qoute {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+  }
+
+  .description {
+    width: 500px;
+    color: rgba(0, 0, 0, 0.7);
+    text-align: center;
+    font-family: "Questrial", serif;
+    font-weight: 600;
+    font-style: normal;
+    font-size: medium;
+    line-height: 20px;
+  }
 </style>
 
 <body>
@@ -127,18 +153,25 @@
       </div>
       <div class="nav-right-section">
         <a href="#">Home</a>
-        <a href="#">blabla</a>
-        <a href="#">wdym</a>
+        <a href="#">favorite</a>
+        <a href="#">about</a>
         <a href="#">idk</a>
       </div>
     </nav>
   </div>
+
+  <hr/>
 
   <div class="qoute-container">
     <div class="qoute">
       <h2>
         Personalize Your Desktop with Endless Inspiration
       </h2>
+    </div>
+  </div>
+  <div class="description-qoute">
+    <div class="description">
+      Explore a world of stunning wallpapers to personalize your screen and elevate your digital experience.
     </div>
   </div>
 </body>
