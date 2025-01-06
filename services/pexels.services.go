@@ -15,5 +15,3 @@ var _httpClient = http.Client{
 
 // Initialisation des variables pour s'authentifier à l'API
 var _clientApiKey string = "Y2W6tV0zwZjAUd84QZDkUOPuviZaXHGxuShzBuvbxstGnHjBzgb5X8pI"
-
-func 

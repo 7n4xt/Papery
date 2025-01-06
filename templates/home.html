@@ -1,13 +1,145 @@
-{{define "home"}}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Papery</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&family=Questrial&display=swap"
+    rel="stylesheet">
 </head>
+<style>
+  @font-face {
+    font-family: 'BrightMarching';
+    src: url('/assets/Fonts/BrightMarching-Regular.otf'), format('opentype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  #newfont {
+    font-family: 'BrightMarching';
+  }
+
+  * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  body {
+    min-height: 100vh;
+    background-image: url(/assets/photos/magicpattern-87PP9Zd7MNo-unsplash.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .nav-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    margin-left: 65px;
+    margin-right: 65px;
+  }
+
+  nav {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    flex: 1;
+  }
+
+  .nav-left-section {
+    font-size: 25px;
+    font-family: "BrightMarching";
+  }
+
+  .nav-right-section {
+    display: flex;
+    gap: 30px;
+    font-family: "Questrial", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: large;
+  }
+
+  .nav-right-section a:link {
+    color: #03120e;
+    position: relative;
+    text-decoration: none;
+  }
+
+  .nav-right-section a:visited {
+    color: #03120e;
+    position: relative;
+    text-decoration: none;
+  }
+
+  .nav-right-section a::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    border-radius: 3px;
+    background-color: #03120e;
+    bottom: 0;
+    left: 0;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform .25s ease-in-out;
+  }
+
+  .nav-right-section a:hover::before {
+    transform-origin: left;
+    transform: scaleX(1);
+  }
+
+  .qoute-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 70px;
+  }
+
+  .qoute h2 {
+    font-family: "Questrial", serif;
+    font-weight: 600;
+    font-style: bold;
+    font-size: 35px;
+    width: 500px;
+    text-align: center;
+    line-height: 40px;
+  }
+</style>
+
 <body>
-  
+  <div class="nav-container">
+    <nav>
+      <div class="nav-left-section">
+        <p class="logo">Papery</p>
+      </div>
+      <div class="nav-right-section">
+        <a href="#">Home</a>
+        <a href="#">blabla</a>
+        <a href="#">wdym</a>
+        <a href="#">idk</a>
+      </div>
+    </nav>
+  </div>
+
+  <div class="qoute-container">
+    <div class="qoute">
+      <h2>
+        Personalize Your Desktop with Endless Inspiration
+      </h2>
+    </div>
+  </div>
 </body>
+
 </html>
-{{end}}
