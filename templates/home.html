@@ -142,7 +142,38 @@
     font-style: normal;
     font-size: medium;
     line-height: 20px;
+    margin-bottom: 35px;
   }
+
+  .sliding-photos img {
+    border-radius: 20px;
+  }
+
+  .sliding-photos  {
+  --d: 10s; 
+  
+  display: grid;
+  overflow: hidden;
+  -webkit-mask: linear-gradient(90deg,#0000,#000 10% 90%,#0000);
+}
+
+.sliding-photos > img {
+  grid-area: 1/1;
+  height: 400px;
+  aspect-ratio: 1.5;
+  object-fit: cover;
+  animation: r var(--d) linear infinite;
+}
+
+.sliding-photos > img:nth-child(2) {animation-delay: calc(1*var(--d)/-4)}
+.sliding-photos > img:nth-child(3) {animation-delay: calc(2*var(--d)/-4)}
+.sliding-photos > img:nth-child(4) {animation-delay: calc(3*var(--d)/-4)}
+
+@keyframes r {
+  75%    {transform: translate(-300%)}
+  75.01% {transform: translate( 100%)}
+}
+
 </style>
 
 <body>
@@ -173,6 +204,13 @@
     <div class="description">
       Explore a world of stunning wallpapers to personalize your screen and elevate your digital experience.
     </div>
+  </div>
+
+  <div class="sliding-photos">
+    <img src="https://images.unsplash.com/photo-1685871286419-58e4fc0de8e1?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+    <img src="https://images.unsplash.com/photo-1533470192478-9897d90d5461?q=80&w=2135&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+    <img src="https://images.unsplash.com/photo-1518640467707-6811f4a6ab73?q=80&w=2080&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+    <img src="https://images.unsplash.com/flagged/photo-1567400358593-9e6382752ea2?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
   </div>
 </body>
 
