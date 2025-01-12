@@ -18,24 +18,32 @@
 }
 
 body {
-background-color: #f0fff0; 
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: honeydew;
 }
 
+main {
+  padding-top: 30px;
+  border-radius: 30px;
+  margin: 15px;
+}
 
 .nav-container {
   display: flex;
   justify-content: center;
-  margin-top: 40px;
-  margin-left: 65px;
-  margin-right: 65px;
+  margin-left: 60px;
+  margin-right: 60px;
 }
 
 nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  
-  flex: 1;
+  padding: 0px 50px;
+  width: 1200px;
 }
 
 .nav-left-section {
@@ -83,15 +91,6 @@ nav {
   transform: scaleX(1);
 }
 
-hr {
-  display: block;
-  height: 1px;
-  border: 0;
-  border-top: 1px solid #000000;
-  margin: 1em 50px;
-  padding: 0;
-}
-
 .qoute-container {
   display: flex;
   justify-content: center;
@@ -116,6 +115,7 @@ hr {
 
 .description {
   width: 500px;
+  display: block;
   color: rgba(0, 0, 0, 0.7);
   text-align: center;
   font-family: "Questrial", serif;
@@ -123,22 +123,26 @@ hr {
   font-style: normal;
   font-size: medium;
   line-height: 20px;
-  margin-bottom: 35px;
+  margin-bottom: 65px;
 }
 
+.Pexels {
+  display: flex;
+  justify-content: center
+}
 .sliding-photos {
---d: 40s; 
+--d: 85s; 
 display: grid;
 overflow: hidden;
--webkit-mask: linear-gradient(90deg,#0000,#000 10% 90%,#0000);
+-webkit-mask: linear-gradient(90deg,#0000,#000 30% 90%,#0000);
 
 }
 
 .sliding-photos > img {
-margin-left: 1550px;
-width: 35%;
-grid-area: 1/1;
-aspect-ratio: 2.5;
+margin-left: 1800px;
+width: 36%;
+grid-area: 2/2;
+aspect-ratio: 2;
 object-fit: cover;
 animation: r var(--d) linear infinite;
 }
@@ -150,8 +154,7 @@ animation: r var(--d) linear infinite;
 .sliding-photos > img:nth-child(6) {animation-delay: calc(5*var(--d)/-8)}
 .sliding-photos > img:nth-child(7) {animation-delay: calc(6*var(--d)/-8)}
 .sliding-photos > img:nth-child(8) {animation-delay: calc(7*var(--d)/-8)}
-
 @keyframes r {
-77%    {transform: translate(-300%)}
-77.01% {transform: translate( 100%)}
+66%    {transform: translate(-500%)}
+66.02% {transform: translate( 200%)}
 }
