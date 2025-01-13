@@ -1,3 +1,4 @@
+{{define "home"}}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -72,20 +73,24 @@
       </div>
     </div>
     <div class="categories">
-      <a href="">Nature</a>
-      <a href="">Mountains</a>
-      <a href="">Sunsets & Sunrises</a>
-      <a href="">Abstract</a>
-      <a href="">Geometric Patterns
-      </a>
-      <a href="">Gradients</a>
+      <a href="#">Nature</a>
+      <a href="#">Mountains</a>
+      <a href="#">Sunsets & Sunrises</a>
+      <a href="#">Abstract</a>
+      <a href="#">Gradients</a>
       <a href="#">Classic Cars</a>
-      <a href="#">Futuristic Designs</a>
       <a href="#">Galaxies</a>
       <a href="#">Space</a>
     </div>
   </section>
 
+  <div class="photos">
+    <div class="Photos-grid">
+      {{range .PhotoSrc}}
+      <img src="{{.Original}}" alt="">
+    </div>
+  </div>
+  {{end}}
 
   <footer> 
     <div class="Pexels"></div>
@@ -93,3 +98,4 @@
 </body>
 
 </html>
+{{end}}

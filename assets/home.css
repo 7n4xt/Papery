@@ -210,7 +210,7 @@ select:hover {
   border-radius: 10px;
   overflow: hidden;
   color: #ffffff;
-  margin-right: -138px;
+  margin-right: -130px;
 }
 /* Arrow */
 .select::after {
@@ -250,3 +250,40 @@ select:hover {
   margin-left: -50px;
   margin-top: 4px;
 }
+
+
+.categories {
+  display: grid;
+  grid-template-columns: 90px 90px 150px 90px 90px 90px 90px 90px ;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.categories a {
+  font-family: "Questrial", serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: medium;
+  transition: all 0.2s;
+}
+.categories a:link {
+  color: #262626c4;
+  position: relative;
+  text-decoration:underline;
+}
+
+.categories a:visited {
+  color: #262626c4;
+  position: relative;
+  text-decoration:underline;
+}
+
+.categories a:hover {
+  color: #000;
+}
+
+.categories a:active {
+  color: #dfdfdf;
+}
+
