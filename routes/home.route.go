@@ -6,5 +6,5 @@ import (
 )
 
 func homeRoutes() {
-	http.HandleFunc("/home", controllers.HomePage)
+	http.HandleFunc("/", controllers.HomePage)
 }
