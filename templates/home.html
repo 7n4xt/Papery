@@ -86,9 +86,9 @@
 
   <div class="photos">
     <div class="Photos-grid">
-      {{range .PhotoSrc}}
-      <img src="{{ .Original}}" alt="">
-      {{end}}
+      {{range .Photos}}
+      <img src="{{.Src.Original}}" alt="">
+    {{end}}
     </div>
   </div>
 
