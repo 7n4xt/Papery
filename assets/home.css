@@ -293,5 +293,15 @@ select:hover {
 }
 
 .Photos-grid {
+  margin-top: 50px;
   display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(relative, 1fr);
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+}
+
+.wallpapers {
+  width: 300px;
+  border-radius: 15px;
 }
