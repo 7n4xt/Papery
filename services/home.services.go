@@ -30,11 +30,10 @@ type HomePagePhotos struct {
 
 // Initialisation des variables pour s'authentifier à l'API
 var _clientApiKey string = "Y2W6tV0zwZjAUd84QZDkUOPuviZaXHGxuShzBuvbxstGnHjBzgb5X8pI"
-var _maxPhotos string = "80"
 
 // HomePagePhotosRequest fetches photos from the Pexels API.
 func HomePagePhotosRequest() (HomePagePhotos, int, error) {
-	url := fmt.Sprintf("https://api.pexels.com/v1/search?query=wallpapers")
+	url := fmt.Sprintf("https://api.pexels.com/v1/search?query=wallpapers&per_page=68")
 
 	req, reqErr := http.NewRequest(http.MethodGet, url, nil)
 	if reqErr != nil {
@@ -42,7 +41,6 @@ func HomePagePhotosRequest() (HomePagePhotos, int, error) {
 	}
 
 	req.Header.Set("Authorization", _clientApiKey)
-	req.Header.Add("per_page", _maxPhotos)
 
 	res, resErr := _httpClient.Do(req)
 	if resErr != nil {
