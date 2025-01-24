@@ -6,5 +6,5 @@ import (
 )
 
 func DetailsRoutes() {
-	http.HandleFunc("/", controllers.DetailsPage)
+	http.HandleFunc("/details", controllers.DetailsPage)
 }

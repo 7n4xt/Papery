@@ -5,9 +5,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title></title>
+  <link rel="stylesheet" href="/assets/CSS/home.css">
 </head>
 <body>
+  {{template "navbar"}}
+
+  <div class="details-container">
+    <div class="details">
+      <img src="{{.URL}}" alt="wallpaper">
+      <div class="details-info">
+        <h2>{{.Title}}</h2>
+        <p>{{.Description}}</p>
+        <a href="{{.URL}}" download>Download</a>
+      </div>
+    </div>
+  </div>
   
+  {{template "footer"}}
 </body>
 </html>
 {{end}}
