@@ -14,13 +14,26 @@
   <link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&family=Questrial&display=swap"
     rel="stylesheet">
     <link rel="stylesheet" href="/assets/CSS/home.css">
+    <link rel="stylesheet" href="/assets/CSS/universal.css">
 </head>
 
 <body>
-  <main>
 
-    {{template "navbar"}}
-  
+  <div class="nav-container">
+    <nav>
+      <div class="nav-left-section">
+        <p class="logo">Papery</p>
+      </div>
+      <div class="nav-right-section">
+        <a href="#">Home</a>
+        <a href="#">favorite</a>
+        <a href="#">about</a>
+        <a href="#">idk</a>
+      </div>
+    </nav>
+  </div>
+
+  <main>
     <div class="qoute-container">
       <div class="qoute">
         <h2>
@@ -71,7 +84,7 @@
       <a href="#">Space</a>
     </div>
   </section>
-
+<!--
   <div class="photos">
     <div class="Photos-grid">
       {{range .Photos}}
@@ -79,9 +92,13 @@
         <img class="wallpapers" src="{{.Src.Original}}" alt="wallpapers">
       </a>
       {{end}}
-<!--
-{{template "footer"}}
       -->
+      <footer>
+        <div class="Pexels-footer">
+          <p>© 2025 PAPERY. All rights reserved. </p>
+          <p>Photos provided by <a href="https://www.pexels.com/">Pexels</a></p>
+        </div>
+      </footer>
 </body>
 
 </html>
