@@ -1,94 +1,102 @@
 main {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 100vh;
+  padding: 40px 0;
 }
 
 .details {
-    display: grid;
-    align-items: center;
-    justify-content: space-around;
-    grid-template-columns: 1fr 1fr;
-    width: 90%;
-    margin: 0 auto;
-    gap: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 40px;
 }
 
 .photo-preview img {
-    width: 1200px;
-    height: auto;
-    display: flex;
-    object-fit: contain;
-    border-radius: 20px;
-    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3);
+  width: 100%;
+  max-width: 1200px;
+  height: auto;
+  object-fit: contain;
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
 }
 
 .details-info {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    width: 550px;
-    height: 300px;
-    border-radius: 20px;
-    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3);
-
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  width: 100%;
+  max-width: 800px;
+  padding: 40px;
+  border-radius: 20px;
+  background-color: white;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
 }
 
 .person-info {
-    display: flex;
-    gap: 100px;
-    align-items: center;
-    margin-left: 80px;
-}
-
-
-.photo-info {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 10px;
-    
-}
-
-.photo-info h2 {
-    font-size: 2rem;
-    font-weight: 700;
-    width: 300px;
-    font-family: "Questrial", serif;
-    font-weight: 600;
-    font-style: bold;
-}
-
-.photo-info p {
-    font-size: 1rem;
-    font-weight: 400;
-    color: rgba(0, 0, 0, 0.7);
-    text-align: center;
-    font-family: "Questrial", serif;
-    font-weight: 600;
-    font-style: normal;
-    font-size: medium;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  text-align: center;
 }
 
 .idk {
-    display: flex;
-    justify-content: center;;
-    align-items: center;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 10px;
 }
 
 .idk p {
-    font-size: 2rem;
-    text-align: center;
-    font-family: "Questrial", serif;
-    font-weight: 600;
-    font-style: normal;
-    width: 140px;
-    color: rgba(0, 0, 0, 1);
+  font-size: 1.5rem;
+  font-family: "Questrial", serif;
+  font-weight: 600;
+  color: #333;
 }
+
+.photo-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+}
+
+.photo-info h2 {
+  font-size: 2.5rem;
+  font-family: "Questrial", serif;
+  font-weight: 700;
+  color: #222;
+  margin: 0;
+}
+
+.photo-info p {
+  font-size: 1.1rem;
+  font-family: "Questrial", serif;
+  font-weight: 400;
+  color: #666;
+  line-height: 1.6;
+  max-width: 600px;
+  text-align: center;
+}
+
+.action-btns {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin-top: 20px;
+}
+
+/* Keeping existing action-btns styles unchanged */
 .download-btn {
   display: inline-block;
   margin-top: 24px;
@@ -108,7 +116,7 @@ main {
   box-shadow: 0 8px 20px rgba(76, 175, 80, 0.4);
 }
 
-/* From Uiverse.io by waleedlh10 */ 
+/* Keeping existing like button styles unchanged */
 .con-like {
   --red: rgb(255, 50, 50);
   position: relative;
@@ -166,28 +174,28 @@ main {
 
 @keyframes kfr-filled {
   0% {
-    opacity: 0;
-    transform: scale(0);
+      opacity: 0;
+      transform: scale(0);
   }
 
   50% {
-    opacity: 1;
-    transform: scale(1.2);
+      opacity: 1;
+      transform: scale(1.2);
   }
 }
 
 @keyframes kfr-celebrate {
   0% {
-    transform: scale(0);
+      transform: scale(0);
   }
 
   50% {
-    opacity: 0.8;
+      opacity: 0.8;
   }
 
   100% {
-    transform: scale(1.2);
-    opacity: 0;
-    display: none;
+      transform: scale(1.2);
+      opacity: 0;
+      display: none;
   }
 }
