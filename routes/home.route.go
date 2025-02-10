@@ -8,3 +8,7 @@ import (
 func homeRoutes() {
 	http.HandleFunc("/", controllers.HomePage)
 }
+
+func searchRoutes() {
+	http.HandleFunc("/search-handle/", controllers.SearchPage)
+}

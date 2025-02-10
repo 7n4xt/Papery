@@ -68,10 +68,14 @@
           <option value="Videos">Videos</option>
         </select>
       </div>
-      <input class="search" type="text" placeholder="Search">
-      <div class="search-icon">
-        <img src="/assets/Icons/ci--search-magnifying-glass.svg" alt="search-icon">
-      </div>
+      <form action="/search" method="get">
+        <input class="search" type="text" name="search-word" placeholder="Search">
+        <div class="search-icon">
+          <img src="/assets/Icons/ci--search-magnifying-glass.svg" alt="search-icon">
+          <input type="submit">
+        </div>
+      </form>
+
     </div>
     <div class="categories">
       <a href="#">Nature</a>
