@@ -210,13 +210,20 @@ select:hover {
   display: grid;
   grid-template-columns: repeat(3, 3.3fr);
   grid-template-rows: repeat(relative, 3.3fr);
-  grid-column-gap: 10px;
-  grid-row-gap: 10px;
+  grid-column-gap: 20px;
+  grid-row-gap: 30px;
 }
 
-.wallpapers {
+.wallpapers{
   width: 300px;
   border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.15);
+  transition: transform 0.5s;
 }
 
+.wallpapers:hover {
+  transform: scale(1.1);
+  transition: transform 0.5s;
+}
 

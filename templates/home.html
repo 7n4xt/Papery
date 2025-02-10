@@ -84,21 +84,13 @@
       <a href="#">Space</a>
     </div>
   </section>
-<!--
   <div class="photos">
     <div class="Photos-grid">
       {{range .Photos}}
-      <a href="/details">
-        <img class="wallpapers" src="{{.Src.Original}}" alt="wallpapers">
+      <a href="/details/{{.ID}}">  <!-- This is like writing the photo's number in the link -->
+          <img class="wallpapers" src="{{.Src.Original}}" alt="wallpapers">
       </a>
-      {{end}}
-      -->
-      <footer>
-        <div class="Pexels-footer">
-          <p>© 2025 PAPERY. All rights reserved. </p>
-          <p>Photos provided by <a href="https://www.pexels.com/">Pexels</a></p>
-        </div>
-      </footer>
+      {{end}} 
 </body>
 
 </html>

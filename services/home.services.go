@@ -19,7 +19,11 @@ type PhotoSrc struct {
 }
 
 type Photo struct {
-	Src PhotoSrc `json:"src"`
+	ID              int      `json:"id"`
+	Src             PhotoSrc `json:"src"`
+	Alt             string   `json:"alt"`
+	Photographer    string   `json:"photographer"`
+	PhotoGrapherURL string   `json:"photographer_url"`
 }
 
 type HomePagePhotos struct {
@@ -33,7 +37,7 @@ var _clientApiKey string = "Y2W6tV0zwZjAUd84QZDkUOPuviZaXHGxuShzBuvbxstGnHjBzgb5
 
 // HomePagePhotosRequest fetches photos from the Pexels API.
 func HomePagePhotosRequest() (HomePagePhotos, int, error) {
-	url := fmt.Sprintf("https://api.pexels.com/v1/search?query=wallpapers&per_page=68")
+	url := fmt.Sprintf("https://api.pexels.com/v1/search?query=wallpapers&per_page=40")
 
 	req, reqErr := http.NewRequest(http.MethodGet, url, nil)
 	if reqErr != nil {

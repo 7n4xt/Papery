@@ -36,14 +36,14 @@
   <main>
     <div class="details">
       <div class="photo-preview">
-        <img
-          src="https://images.unsplash.com/photo-1735181056575-1f05648efbad?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-          alt="wallpaper">
+        <img src="{{.Src.Original}}" alt="{{.Alt}}">
       </div>
       <div class="details-info">
         <div class="photo-info">
           <div class="person-info">
             <div class="idk">
+
+
               <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24">
                 <g fill="none" stroke="currentColor" stroke-dasharray="28" stroke-dashoffset="28" stroke-linecap="round"
                   stroke-linejoin="round" stroke-width="2">
@@ -55,12 +55,12 @@
                   </path>
                 </g>
               </svg>
-              <p>John Doe</p>
+
+              <p>Photo by {{.Photographer}}</p>
             </div>
 
-            <h2>This is a Photo</h2>
+            <h2>{{.Alt}}</h2>
           </div>
-          <p>One of the best photo that a took in my life, hope guys you like it !!</p>
         </div>
         <div class="action-btns">
           <!-- From Uiverse.io by waleedlh10 -->
@@ -88,7 +88,7 @@
             </div>
           </div>
           <a class="download-btn"
-            href="https://images.unsplash.com/photo-1735181056575-1f05648efbad?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            href="{{.Src.Original}}"
             download>Download</a>
         </div>
 
@@ -96,12 +96,6 @@
     </div>
   </main>
 
-  <footer>
-    <div class="Pexels-footer">
-      <p>© 2025 PAPERY. All rights reserved. </p>
-      <p>Photos provided by <a href="https://www.pexels.com/">Pexels</a></p>
-    </div>
-  </footer>
 </body>
 
 </html>
