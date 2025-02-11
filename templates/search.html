@@ -1,0 +1,66 @@
+{{define "search"}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Papery : Search Results</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&family=Questrial&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/CSS/home.css">
+    <link rel="stylesheet" href="/assets/CSS/universal.css">
+    <link rel="stylesheet" href="/assets/CSS/search.css">
+</head>
+<body>
+    <div class="nav-container">
+        <nav>
+            <div class="nav-left-section">
+                <p class="logo">Papery</p>
+            </div>
+            <div class="nav-right-section">
+                <a href="/">Home</a>
+                <a href="#">favorite</a>
+                <a href="#">about</a>
+                <a href="#">idk</a>
+            </div>
+        </nav>
+    </div>
+
+    <main>
+        <div class="search-results-header">
+            <h2>Search Results for: {{.Query}}</h2>
+        </div>
+
+        <section>
+            <div class="search-catagorize">
+                <div class="select">
+                    <select class="catagorize-selector" name="Photos" id="type-of-content">
+                        <option value="Photos">Photos</option>
+                        <option value="Videos">Videos</option>
+                    </select>
+                </div>
+                <form action="/search" method="get">
+                    <input class="search" type="text" name="search-word" placeholder="Search" value="{{.Query}}">
+                    <div class="search-icon">
+                        <img src="/assets/Icons/ci--search-magnifying-glass.svg" alt="search-icon">
+                        <input type="submit">
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <div class="photos">
+            <div class="Photos-grid">
+                {{range .Photos}}
+                <a href="/details/{{.ID}}">
+                    <img class="wallpapers" src="{{.Src.Original}}" alt="{{.Alt}}">
+                </a>
+                {{end}}
+            </div>
+        </div>
+    </main>
+</body>
+</html>
+{{end}}

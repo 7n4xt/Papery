@@ -10,5 +10,5 @@ func homeRoutes() {
 }
 
 func searchRoutes() {
-	http.HandleFunc("/search-handle/", controllers.SearchPage)
+	http.HandleFunc("/search", controllers.SearchPage)
 }

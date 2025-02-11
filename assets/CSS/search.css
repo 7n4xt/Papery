@@ -1,0 +1,15 @@
+.search-results-header h2 {
+    font-family: "Questrial", serif;
+    font-weight: 600;
+    font-style: bold;
+    font-size: 30px;
+    width: 600px;
+    text-align: center;
+    line-height: 50px;
+}
+
+.search-results-header {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
