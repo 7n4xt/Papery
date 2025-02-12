@@ -94,7 +94,17 @@
       <a href="/details/{{.ID}}">  <!-- This is like writing the photo's number in the link -->
           <img class="wallpapers" src="{{.Src.Original}}" alt="wallpapers">
       </a>
-      {{end}} 
+      {{end}}
+
+      <div class="pagination">
+        {{if .HasPrevPage}}
+          <a href="/?page={{.PrevPage}}" class="prev-button">Previous</a>
+        {{end}}
+        <span>Page {{.CurrentPage}}</span>
+        {{if .HasNextPage}}
+          <a href="/?page={{.NextPage}}" class="next-button">Next</a>
+        {{end}}
+      </div>
 </body>
 
 </html>

@@ -7,12 +7,12 @@ import (
 	"time"
 )
 
-// Déclaration du client qui va émettre les requêtes
+// HTTP client with timeout
 var _httpClient = http.Client{
 	Timeout: 5 * time.Second,
 }
 
-// la structure de la page d'accueil
+// API response structure
 type PhotoSrc struct {
 	Original string `json:"original"`
 	Large2x  string `json:"large2x"`
@@ -27,17 +27,18 @@ type Photo struct {
 }
 
 type HomePagePhotos struct {
-	Page    int     `json:"page"`
-	PerPage int     `json:"per_page"`
-	Photos  []Photo `json:"photos"`
+	Page         int     `json:"page"`
+	PerPage      int     `json:"per_page"`
+	TotalResults int     `json:"total_results"`
+	Photos       []Photo `json:"photos"`
 }
 
-// Initialisation des variables pour s'authentifier à l'API
-var _clientApiKey string = "Y2W6tV0zwZjAUd84QZDkUOPuviZaXHGxuShzBuvbxstGnHjBzgb5X8pI"
+// API Key (Replace this with a secure method to load your API key)
+const _clientApiKey string = "Y2W6tV0zwZjAUd84QZDkUOPuviZaXHGxuShzBuvbxstGnHjBzgb5X8pI"
 
-// HomePagePhotosRequest fetches photos from the Pexels API.
-func HomePagePhotosRequest() (HomePagePhotos, int, error) {
-	url := fmt.Sprintf("https://api.pexels.com/v1/search?query=wallpapers&per_page=40")
+// Fetch photos with pagination
+func HomePagePhotosRequest(page, perPage int) (HomePagePhotos, int, error) {
+	url := fmt.Sprintf("https://api.pexels.com/v1/search?query=wallpapers&page=%d&per_page=%d", page, perPage)
 
 	req, reqErr := http.NewRequest(http.MethodGet, url, nil)
 	if reqErr != nil {
