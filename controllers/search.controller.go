@@ -2,13 +2,19 @@ package controllers
 
 import (
 	"groupie-tracker/services"
-	"html/template"
+	temp "groupie-tracker/templates"
 	"net/http"
+	"strconv"
 )
 
 type SearchPageData struct {
-	Photos []services.Photo
-	Query  string
+	Photos      []services.Photo
+	Query       string
+	CurrentPage int
+	HasNextPage bool
+	HasPrevPage bool
+	NextPage    int
+	PrevPage    int
 }
 
 func SearchPage(w http.ResponseWriter, r *http.Request) {
@@ -19,8 +25,18 @@ func SearchPage(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	// Fetch photos based on search query
-	data, status, err := services.Search_Request(query)
+	// Get the page parameter, defaulting to 1 if not present
+	pageStr := r.URL.Query().Get("page")
+	page, err := strconv.Atoi(pageStr)
+	if err != nil || page < 1 {
+		page = 1
+	}
+
+	// Set the number of images per page
+	perPage := 40
+
+	// Fetch photos based on search query with pagination
+	data, status, err := services.Search_Request(query, page, perPage)
 	if err != nil {
 		http.Error(w, err.Error(), status)
 		return
@@ -28,18 +44,17 @@ func SearchPage(w http.ResponseWriter, r *http.Request) {
 
 	// Prepare data for the template
 	pageData := SearchPageData{
-		Photos: data.Photos,
-		Query:  query,
+		Photos:      data.Photos,
+		Query:       query,
+		CurrentPage: page,
+		HasNextPage: (page * perPage) < data.TotalResults,
+		HasPrevPage: page > 1,
+		NextPage:    page + 1,
+		PrevPage:    page - 1,
 	}
 
-	// Parse and execute the template
-	tmpl, err := template.ParseFiles("templates/search.html")
-	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
-		return
-	}
-
-	err = tmpl.ExecuteTemplate(w, "search", pageData)
+	// Execute the template
+	err = temp.Temp.ExecuteTemplate(w, "search", pageData)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return

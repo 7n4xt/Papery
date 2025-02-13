@@ -141,6 +141,12 @@ select:hover {
   color: #000000;
 }
 
+.search-catagorize form {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
 .search {
   height: 58px;
   width: 580px;
@@ -152,6 +158,7 @@ select:hover {
   border-radius: 10px;
   border-style: none;
   box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.15);
+  padding-right: 50px; /* Make room for the search icon */
 }
 
 .search::placeholder {
@@ -159,8 +166,25 @@ select:hover {
 }
 
 .search-icon {
-  margin-left: -50px;
-  margin-top: 4px;
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.search-icon input[type="submit"] {
+  display: none;
+}
+
+.search-icon img {
+  width: 24px;
+  height: 24px;
+  transition: transform 0.2s ease;
+}
+
+.search-icon:hover img {
+  transform: scale(1.1);
 }
 
 
@@ -198,6 +222,5 @@ select:hover {
 .categories a:active {
   color: #dfdfdf;
 }
-
 
 

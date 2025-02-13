@@ -3,6 +3,7 @@ package services
 import (
 	"encoding/json"
 	"fmt"
+	"math/rand"
 	"net/http"
 	"time"
 )
@@ -16,6 +17,7 @@ var _httpClient = http.Client{
 type PhotoSrc struct {
 	Original string `json:"original"`
 	Large2x  string `json:"large2x"`
+	Large    string `json:"large"`
 }
 
 type Photo struct {
@@ -38,7 +40,9 @@ const _clientApiKey string = "Y2W6tV0zwZjAUd84QZDkUOPuviZaXHGxuShzBuvbxstGnHjBzg
 
 // Fetch photos with pagination
 func HomePagePhotosRequest(page, perPage int) (HomePagePhotos, int, error) {
-	url := fmt.Sprintf("https://api.pexels.com/v1/search?query=wallpapers&page=%d&per_page=%d", page, perPage)
+	var randomeQuery = []string{"wallpapers", "abstract", "nature", "Cars", "technology"}
+
+	url := fmt.Sprintf("https://api.pexels.com/v1/search?%s=wallpapers&page=%d&per_page=%d", randomeQuery[rand.Int(4)], page, perPage)
 
 	req, reqErr := http.NewRequest(http.MethodGet, url, nil)
 	if reqErr != nil {

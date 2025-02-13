@@ -55,12 +55,55 @@
             <div class="Photos-grid">
                 {{range .Photos}}
                 <a href="/details/{{.ID}}">
-                    <img class="wallpapers" src="{{.Src.Original}}" alt="{{.Alt}}">
+                    <img class="wallpapers" src="{{.Src.Large}}" alt="{{.Alt}}">
                 </a>
                 {{end}}
             </div>
         </div>
+
+        <div class="pagination">
+            {{if .HasPrevPage}}
+            <a href="/search?search-word={{.Query}}&page={{.PrevPage}}" class="prev-button">Previous</a>
+            {{end}}
+            <span>Page {{.CurrentPage}}</span>
+            {{if .HasNextPage}}
+            <a href="/search?search-word={{.Query}}&page={{.NextPage}}" class="next-button">Next</a>
+            {{end}}
+          </div>
     </main>
+    <footer>
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>Papery</h3>
+            <p>Discover and download high-quality wallpapers for your desktop and mobile devices.</p>
+          </div>
+          
+          <div class="footer-section">
+            <h4>Categories</h4>
+            <ul>
+              <li><a href="#">Nature</a></li>
+              <li><a href="#">Abstract</a></li>
+              <li><a href="#">Space</a></li>
+              <li><a href="#">Minimal</a></li>
+            </ul>
+          </div>
+      
+          <div class="footer-section">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Contact</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Terms of Service</a></li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="footer-bottom">
+          <p>&copy; 2024 Papery. All rights reserved.</p>
+        </div>
+      </footer>
+    
 </body>
 </html>
 {{end}}
