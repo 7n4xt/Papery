@@ -3,7 +3,6 @@ package services
 import (
 	"encoding/json"
 	"fmt"
-	"math/rand"
 	"net/http"
 	"time"
 )
@@ -40,11 +39,7 @@ const _clientApiKey string = "Y2W6tV0zwZjAUd84QZDkUOPuviZaXHGxuShzBuvbxstGnHjBzg
 
 // Fetch photos with pagination
 func HomePagePhotosRequest(page, perPage int) (HomePagePhotos, int, error) {
-	var randomQuery = []string{"wallpapers", "abstract", "nature", "cars", "technology"}
-
-	// Correcting the random selection
-	randomIndex := rand.Intn(len(randomQuery)) // Picks a random index from 0 to len(randomQuery)-1
-	query := randomQuery[randomIndex]
+	query := "abstract"
 
 	url := fmt.Sprintf("https://api.pexels.com/v1/search?query=%s&page=%d&per_page=%d", query, page, perPage)
 

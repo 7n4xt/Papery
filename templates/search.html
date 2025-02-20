@@ -21,9 +21,8 @@
             </div>
             <div class="nav-right-section">
                 <a href="/">Home</a>
-                <a href="#">favorite</a>
+                <a href="/favorite">favorite</a>
                 <a href="#">about</a>
-                <a href="#">idk</a>
             </div>
         </nav>
     </div>
@@ -35,13 +34,15 @@
 
         <section>
             <div class="search-catagorize">
-                <div class="select">
-                    <select class="catagorize-selector" name="Photos" id="type-of-content">
-                        <option value="Photos">Photos</option>
-                        <option value="Videos">Videos</option>
-                    </select>
-                </div>
                 <form action="/search" method="get">
+                    <div class="select">
+                        <select class="filter-dimensions" name="filter" id="filter">
+                            <option value="1980x1080">1080p</option>
+                            <option value="2560x1440">2k</option>
+                            <option value="3840x2160">4k</option>
+                            <option value="8k">8k</option>
+                        </select>
+                    </div>
                     <input class="search" type="text" name="search-word" placeholder="Search" value="{{.Query}}">
                     <div class="search-icon">
                         <img src="/assets/Icons/ci--search-magnifying-glass.svg" alt="search-icon">

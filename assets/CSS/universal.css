@@ -224,14 +224,14 @@ footer {
   font-weight: 500;
   padding: 10px 20px;
   border-radius: 8px;
-  background-color: var(--darkgray);
-  color: #000000;
+  background-color: black;
+  color: #ffffff;
   text-decoration: none;
   transition: all 0.3s ease;
 }
 
 .pagination a:hover {
-  background-color: #e6e6e6;
+  background-color: #535353;
   transform: translateY(-2px);
 }
 
@@ -248,6 +248,69 @@ footer {
   cursor: not-allowed;
 }
 
+:root {
+  --gray: #7b7b7b;
+  --darkgray: #ececec;
+}
+
+select {
+  /* Reset Select */
+  appearance: none;
+  outline: 10px red;
+  border: 0;
+  box-shadow: none;
+  /* Personalize */
+  flex: 1;
+  padding: 0 1em;
+  color: #000000;
+  background-color: var(--darkgray);
+  background-image: none;
+  cursor: pointer;
+  font-family: "Questrial", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: medium;
+  transition: all 0.3s;
+}
+
+/* Remove IE arrow */
+select::-ms-expand {
+  display: none;
+}
+
+select:hover {
+  background-color: #e6e6e6;
+}
+
+/* Custom Select wrapper */
+.select {
+  position: relative;
+  display: flex;
+  width: 7em;
+  height: 3em;
+  border-radius: 10px;
+  overflow: hidden;
+  color: #ffffff;
+  margin-right: -138px;
+}
+
+/* Arrow */
+.select::after {
+  content: '\25BC';
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 1em;
+  width: 10px;
+  background-color: #f0f0f0;
+  transition: .25s all ease;
+  pointer-events: none;
+}
+
+/* Transition */
+.select:hover::after {
+  color: #000000;
+}
 
 /* Responsive Design */
 @media (max-width: 900px) {

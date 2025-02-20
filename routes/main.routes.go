@@ -7,6 +7,7 @@ import (
 
 func InitServe() {
 
+	FavoriteRoutes()
 	homeRoutes()
 	DetailsRoutes()
 	searchRoutes()
