@@ -71,21 +71,21 @@
     <div class="search-catagorize">
       <div class="search-catagorize">
         <form action="/search" method="get">
-            <div class="select">
-                <select class="filter-dimensions" name="filter" id="filter">
-                    <option value="1980x1080">1080p</option>
-                    <option value="2560x1440">2k</option>
-                    <option value="3840x2160">4k</option>
-                    <option value="8k">8k</option>
-                </select>
-            </div>
-            <input class="search" type="text" name="search-word" placeholder="Search" value="{{.Query}}">
-            <div class="search-icon">
-                <img src="/assets/Icons/ci--search-magnifying-glass.svg" alt="search-icon">
-                <input type="submit">
-            </div>
+          <div class="select">
+            <select class="filter-dimensions" name="filter" id="filter">
+              <option value="original">Original (4K+)</option>
+              <option value="large2x">Large (2K)</option>
+              <option value="large">Medium (1080p)</option>
+              <option value="medium">Small (720p)</option>
+            </select>
+          </div>
+          <input class="search" type="text" name="search-word" placeholder="Search" value="{{.Query}}">
+          <div class="search-icon">
+            <img src="/assets/Icons/ci--search-magnifying-glass.svg" alt="search-icon">
+            <input type="submit">
+          </div>
         </form>
-    </div>
+      </div>
 
     </div>
     <div class="categories">
@@ -102,19 +102,19 @@
   <div class="photos">
     <div class="Photos-grid">
       {{range .Photos}}
-      <a href="/details/{{.ID}}"> <!-- This is like writing the photo's number in the link -->
-        <img class="wallpapers" src="{{.Src.Large}}" alt="wallpapers">
+      <a href="/details/{{.ID}}?filter={{$.Filter}}">
+        <img class="wallpapers" src="{{index .Src $.Filter}}" alt="wallpapers">
       </a>
       {{end}}
     </div>
   </div>
   <div class="pagination">
     {{if .HasPrevPage}}
-    <a href="/?page={{.PrevPage}}" class="prev-button">Previous</a>
+    <a href="/?page={{.PrevPage}}&filter={{.Filter}}" class="prev-button">Previous</a>
     {{end}}
     <span>Page {{.CurrentPage}}</span>
     {{if .HasNextPage}}
-    <a href="/?page={{.NextPage}}" class="next-button">Next</a>
+    <a href="/?page={{.NextPage}}&filter={{.Filter}}" class="next-button">Next</a>
     {{end}}
   </div>
 

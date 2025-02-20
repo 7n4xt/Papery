@@ -35,7 +35,7 @@
   <main>
     <div class="details">
       <div class="photo-preview">
-        <img src="{{.Src.Original}}" alt="{{.Alt}}">
+        <img src="{{index .Photo.Src .Filter}}" alt="{{.Photo.Alt}}">
       </div>
       <div class="details-info">
         <div class="photo-info">
@@ -86,20 +86,31 @@
               </svg>
             </div>
           </div>
-          <a class="download-btn" href="{{.Src.Original}}" download="Papery-Wallpaper">Download</a>
+          <a class="download-btn" href="{{index .Photo.Src .Filter}}" download="Papery-Wallpaper">Download</a>
+          <div class="resolution-select">
+            <form id="resolutionForm">
+              <label for="resolution">Resolution:</label>
+              <select id="resolution" name="filter" onchange="changeResolution()">
+                <option value="original" {{if eq .Filter "original" }}selected{{end}}>Original (4K+)</option>
+                <option value="large2x" {{if eq .Filter "large2x" }}selected{{end}}>Large (2K)</option>
+                <option value="large" {{if eq .Filter "large" }}selected{{end}}>Medium (1080p)</option>
+                <option value="medium" {{if eq .Filter "medium" }}selected{{end}}>Small (720p)</option>
+              </select>
+            </form>
+          </div>
         </div>
 
       </div>
     </div>
   </main>
-  
+
   <footer>
     <div class="footer-content">
       <div class="footer-section">
         <h3>Papery</h3>
         <p>Discover and download high-quality wallpapers for your desktop and mobile devices.</p>
       </div>
-      
+
       <div class="footer-section">
         <h4>Categories</h4>
         <ul>
@@ -109,7 +120,7 @@
           <li><a href="#">Minimal</a></li>
         </ul>
       </div>
-  
+
       <div class="footer-section">
         <h4>Company</h4>
         <ul>
@@ -120,7 +131,7 @@
         </ul>
       </div>
     </div>
-    
+
     <div class="footer-bottom">
       <p>&copy; 2024 Papery. All rights reserved.</p>
     </div>
@@ -128,6 +139,14 @@
 
 
 </body>
+<script>
+  function changeResolution() {
+    const select = document.getElementById('resolution');
+    const currentUrl = new URL(window.location.href);
+    currentUrl.searchParams.set('filter', select.value);
+    window.location.href = currentUrl.toString();
+  }
+</script>
 
 </html>
 {{end}}

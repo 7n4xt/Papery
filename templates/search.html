@@ -55,8 +55,8 @@
         <div class="photos">
             <div class="Photos-grid">
                 {{range .Photos}}
-                <a href="/details/{{.ID}}">
-                    <img class="wallpapers" src="{{.Src.Large}}" alt="{{.Alt}}">
+                <a href="/details/{{.ID}}?filter={{$.Filter}}">
+                    <img class="wallpapers" src="{{index .Src $.Filter}}" alt="{{.Alt}}">
                 </a>
                 {{end}}
             </div>
@@ -64,11 +64,11 @@
 
         <div class="pagination">
             {{if .HasPrevPage}}
-            <a href="/search?search-word={{.Query}}&page={{.PrevPage}}" class="prev-button">Previous</a>
+            <a href="/search?search-word={{.Query}}&page={{.PrevPage}}&filter={{.Filter}}" class="prev-button">Previous</a>
             {{end}}
             <span>Page {{.CurrentPage}}</span>
             {{if .HasNextPage}}
-            <a href="/search?search-word={{.Query}}&page={{.NextPage}}" class="next-button">Next</a>
+            <a href="/search?search-word={{.Query}}&page={{.NextPage}}&filter={{.Filter}}" class="next-button">Next</a>
             {{end}}
           </div>
     </main>
