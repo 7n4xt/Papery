@@ -5,16 +5,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title></title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
+  <title>{{.Alt}}</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&family=Questrial&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="/assets/CSS/detailsPage.css">
   <link rel="stylesheet" href="/assets/CSS/universal.css">
+  <link rel="icon" href="/assets/Icons/Screenshot From 2025-02-22 17-07-18.png" type="image/png">
 </head>
 
 <body>
@@ -35,14 +33,12 @@
   <main>
     <div class="details">
       <div class="photo-preview">
-        <img src="{{index .Photo.Src .Filter}}" alt="{{.Photo.Alt}}">
+        <img src="{{.Src.Original}}" alt="{{.Alt}}">
       </div>
       <div class="details-info">
         <div class="photo-info">
           <div class="person-info">
             <div class="idk">
-
-
               <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24">
                 <g fill="none" stroke="currentColor" stroke-dasharray="28" stroke-dashoffset="28" stroke-linecap="round"
                   stroke-linejoin="round" stroke-width="2">
@@ -64,7 +60,9 @@
         <div class="action-btns">
           <!-- From Uiverse.io by waleedlh10 -->
           <div class="con-like">
-            <input class="like" type="checkbox" title="like">
+            <input class="like" type="checkbox" title="like" data-photo='{{printf "%d" .ID}}'
+              data-photographer="{{.Photographer}}" data-alt="{{.Alt}}" data-src-original="{{.Src.Original}}"
+              data-src-large="{{.Src.Large}}" onchange="toggleFavorite(this)">
             <div class="checkmark">
               <svg xmlns="http://www.w3.org/2000/svg" class="outline" viewBox="0 0 24 24">
                 <path
@@ -86,20 +84,8 @@
               </svg>
             </div>
           </div>
-          <a class="download-btn" href="{{index .Photo.Src .Filter}}" download="Papery-Wallpaper">Download</a>
-          <div class="resolution-select">
-            <form id="resolutionForm">
-              <label for="resolution">Resolution:</label>
-              <select id="resolution" name="filter" onchange="changeResolution()">
-                <option value="original" {{if eq .Filter "original" }}selected{{end}}>Original (4K+)</option>
-                <option value="large2x" {{if eq .Filter "large2x" }}selected{{end}}>Large (2K)</option>
-                <option value="large" {{if eq .Filter "large" }}selected{{end}}>Medium (1080p)</option>
-                <option value="medium" {{if eq .Filter "medium" }}selected{{end}}>Small (720p)</option>
-              </select>
-            </form>
-          </div>
+          <a class="download-btn" href="{{.Src.Original}}" download="Papery-Wallpaper">Download</a>
         </div>
-
       </div>
     </div>
   </main>
@@ -137,15 +123,14 @@
     </div>
   </footer>
 
-
+  <script src="/assets/js/favorites.js"></script>
 </body>
+
 <script>
-  function changeResolution() {
-    const select = document.getElementById('resolution');
-    const currentUrl = new URL(window.location.href);
-    currentUrl.searchParams.set('filter', select.value);
-    window.location.href = currentUrl.toString();
-  }
+  // Initialize favorite status when page loads
+  document.addEventListener('DOMContentLoaded', () => {
+    checkFavoriteStatus('{{.ID}}');
+  });
 </script>
 
 </html>

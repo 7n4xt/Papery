@@ -11,9 +11,98 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&family=Questrial&display=swap"
-      rel="stylesheet">
+        rel="stylesheet">
     <link rel="stylesheet" href="/assets/CSS/universal.css">
+    <link rel="icon" href="/assets/Icons/Screenshot From 2025-02-22 17-07-18.png" type="image/png">
     <title>Your Personal Touch | Favorites</title>
+</head>
+<style>
+    main {
+        margin-top: 100px;
+        min-height: 60vh;
+    }
+
+    .Photos-grid {
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+
+    .photo-container {
+        position: relative;
+    }
+
+    .photo-container a {
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+
+    .photo-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+    }
+
+    .photo-container:hover img {
+        transform: scale(1.05);
+    }
+
+    .remove-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: rgba(255, 0, 0, 0.8);
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.3s ease;
+        z-index: 2;
+    }
+
+    .photo-container:hover .remove-btn {
+        transform: translate(5px, -5px);
+    }
+
+    .remove-btn:hover {
+        background: rgba(255, 0, 0, 1);
+    }
+
+    .empty-favorites {
+        text-align: center;
+        padding: 120px 50px;
+        font-size: 1.2em;
+        color: #666;
+        min-height: 400px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .favorites-header {
+        margin-top: 90px;
+        margin-bottom: 60px;
+        text-align: center;
+    }
+
+    .favorites-title {
+        font-family: "Questrial", serif;
+        font-weight: 600;
+        font-size: 50px;
+        margin-bottom: 20px;
+    }
+
+    .favorites-description {
+        font-family: "Questrial", serif;
+        color: rgba(0, 0, 0, 0.7);
+        font-size: medium;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+</style>
 </head>
 
 <body>
@@ -23,13 +112,44 @@
                 <p class="logo">Papery</p>
             </div>
             <div class="nav-right-section">
-                <a href="#">Home</a>
-                <a href="#">favorite</a>
+                <a href="/">Home</a>
+                <a href="/favorite">favorite</a>
                 <a href="#">about</a>
             </div>
         </nav>
     </div>
 
+
+
+    <main>
+        <div class="favorites-header">
+            <h2 class="favorites-title">Your Favorite Collection</h2>
+            <p class="favorites-description">Curate your personal gallery of handpicked wallpapers that inspire and
+                delight
+                you every day.</p>
+        </div>
+
+        <div class="photos">
+            {{if .Photos}}
+            <div class="Photos-grid">
+                {{range .Photos}}
+                <div class="photo-container">
+                    <a href="/details/{{.ID}}">
+                        <img src="{{.Src.Large}}" alt="{{.Alt}}" class="wallpapers">
+                    </a>
+                    <button class="remove-btn" onclick="removeFavorite('{{.ID}}', this)">Remove</button>
+                </div>
+                {{end}}
+            </div>
+            {{else}}
+            <div class="empty-favorites">
+                <h2 class="favorites-title">No Favorites Yet</h2>
+                <p class="favorites-description">Start adding your favorite wallpapers from the home page to build your
+                    personal collection!</p>
+            </div>
+            {{end}}
+        </div>
+    </main>
 
 
     <footer>
@@ -64,7 +184,35 @@
             <p>&copy; 2024 Papery. All rights reserved.</p>
         </div>
     </footer>
+    <script src="/assets/js/favorites.js"></script>
 </body>
+
+<script>
+    function removeFavorite(photoId, button) {
+        fetch(`/api/favorites/remove?id=${photoId}`, {
+            method: 'DELETE',
+        })
+            .then(response => {
+                if (response.ok) {
+                    // Remove the photo container from the grid
+                    button.parentElement.remove();
+
+                    // Check if there are any photos left
+                    const photosGrid = document.querySelector('.Photos-grid');
+                    if (photosGrid && photosGrid.children.length === 0) {
+                        const photosContainer = document.querySelector('.photos');
+                        photosContainer.innerHTML = `
+                    <div class="empty-favorites">
+                        <h2 class="favorites-title">No Favorites Yet</h2>
+                        <p class="favorites-description">Start adding your favorite wallpapers from the home page to build your personal collection!</p>
+                    </div>
+                `;
+                    }
+                }
+            })
+            .catch(error => console.error('Error:', error));
+    }
+</script>
 
 </html>
 {{end}}

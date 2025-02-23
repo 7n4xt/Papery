@@ -27,11 +27,6 @@ func SearchPage(w http.ResponseWriter, r *http.Request) {
         return
     }
 
-    // Get the filter parameter, defaulting to "large" if not present
-    filter := r.URL.Query().Get("filter")
-    if filter == "" {
-        filter = "large"
-    }
 
     // Get the page parameter, defaulting to 1 if not present
     pageStr := r.URL.Query().Get("page")
@@ -59,7 +54,6 @@ func SearchPage(w http.ResponseWriter, r *http.Request) {
         HasPrevPage: page > 1,
         NextPage:    page + 1,
         PrevPage:    page - 1,
-        Filter:      filter,
     }
 	
     err = temp.Temp.ExecuteTemplate(w, "search", pageData)

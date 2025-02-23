@@ -15,6 +15,7 @@
     rel="stylesheet">
   <link rel="stylesheet" href="/assets/CSS/home.css">
   <link rel="stylesheet" href="/assets/CSS/universal.css">
+  <link rel="icon" href="/assets/Icons/Screenshot From 2025-02-22 17-07-18.png" type="image/png">
 </head>
 
 <body>
@@ -102,19 +103,19 @@
   <div class="photos">
     <div class="Photos-grid">
       {{range .Photos}}
-      <a href="/details/{{.ID}}?filter={{$.Filter}}">
-        <img class="wallpapers" src="{{index .Src $.Filter}}" alt="wallpapers">
+      <a href="/details/{{.ID}}">
+        <img class="wallpapers" src="{{ .Src.Large2x}}" alt="wallpapers">
       </a>
       {{end}}
     </div>
   </div>
   <div class="pagination">
     {{if .HasPrevPage}}
-    <a href="/?page={{.PrevPage}}&filter={{.Filter}}" class="prev-button">Previous</a>
+    <a href="/?page={{.PrevPage}}" class="prev-button">Previous</a>
     {{end}}
     <span>Page {{.CurrentPage}}</span>
     {{if .HasNextPage}}
-    <a href="/?page={{.NextPage}}&filter={{.Filter}}" class="next-button">Next</a>
+    <a href="/?page={{.NextPage}}" class="next-button">Next</a>
     {{end}}
   </div>
 

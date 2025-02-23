@@ -9,13 +9,7 @@ import (
 
 // Update home.controller.go
 func HomePage(w http.ResponseWriter, r *http.Request) {
-    // Get the filter parameter, defaulting to "large" if not present
-    filter := r.URL.Query().Get("filter")
-    if filter == "" {
-        filter = "large"
-    }
-    
-    // Get the "page" query parameter from the URL (default to 1)
+    // Get the page number from the query string
     pageStr := r.URL.Query().Get("page")
     page, err := strconv.Atoi(pageStr)
     if err != nil || page < 1 {
@@ -40,6 +34,5 @@ func HomePage(w http.ResponseWriter, r *http.Request) {
         "HasPrevPage": page > 1,
         "NextPage":    page + 1,
         "PrevPage":    page - 1,
-        "Filter":      filter,
     })
 }
