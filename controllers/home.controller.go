@@ -1,16 +1,16 @@
 package controllers
 
 import (
-	"groupie-tracker/services"
-	temp "groupie-tracker/templates"
-	"net/http"
-	"strconv"
+    "groupie-tracker/services"
+    temp "groupie-tracker/templates"
+    "net/http"
+    "strconv"
 )
 
 // Update home.controller.go
 func HomePage(w http.ResponseWriter, r *http.Request) {
-    // Get the page number from the query string
-    pageStr := r.URL.Query().Get("page")
+    // Get the page number from the form value
+    pageStr := r.FormValue("page")
     page, err := strconv.Atoi(pageStr)
     if err != nil || page < 1 {
         page = 1 // Default to page 1 if there's an error or invalid input

@@ -13,96 +13,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&family=Questrial&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="/assets/CSS/universal.css">
-    <link rel="icon" href="/assets/Icons/Screenshot From 2025-02-22 17-07-18.png" type="image/png">
+    <link rel="stylesheet" href="/assets/CSS/favorite.css">
+    <link rel="icon" href="/assets/Icons/paperyLogo.png" type="image/png">
     <title>Your Personal Touch | Favorites</title>
 </head>
-<style>
-    main {
-        margin-top: 100px;
-        min-height: 60vh;
-    }
-
-    .Photos-grid {
-        margin-top: 50px;
-        margin-bottom: 50px;
-    }
-
-    .photo-container {
-        position: relative;
-    }
-
-    .photo-container a {
-        display: block;
-        width: 100%;
-        height: 100%;
-    }
-
-    .photo-container img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transition: transform 0.3s ease;
-    }
-
-    .photo-container:hover img {
-        transform: scale(1.05);
-    }
-
-    .remove-btn {
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        background: rgba(255, 0, 0, 0.8);
-        color: white;
-        border: none;
-        padding: 5px 10px;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background-color 0.3s, transform 0.3s ease;
-        z-index: 2;
-    }
-
-    .photo-container:hover .remove-btn {
-        transform: translate(5px, -5px);
-    }
-
-    .remove-btn:hover {
-        background: rgba(255, 0, 0, 1);
-    }
-
-    .empty-favorites {
-        text-align: center;
-        padding: 120px 50px;
-        font-size: 1.2em;
-        color: #666;
-        min-height: 400px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .favorites-header {
-        margin-top: 90px;
-        margin-bottom: 60px;
-        text-align: center;
-    }
-
-    .favorites-title {
-        font-family: "Questrial", serif;
-        font-weight: 600;
-        font-size: 50px;
-        margin-bottom: 20px;
-    }
-
-    .favorites-description {
-        font-family: "Questrial", serif;
-        color: rgba(0, 0, 0, 0.7);
-        font-size: medium;
-        max-width: 500px;
-        margin: 0 auto;
-    }
-</style>
 </head>
 
 <body>

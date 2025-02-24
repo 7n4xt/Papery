@@ -19,15 +19,15 @@ type SearchPageData struct {
 }
 
 func SearchPage(w http.ResponseWriter, r *http.Request) {
-	// Get the search query from URL parameters
-	query := r.URL.Query().Get("search-word")
+	// Get the search query from form values
+	query := r.FormValue("search-word")
 	if query == "" {
 		http.Redirect(w, r, "/", http.StatusSeeOther)
 		return
 	}
 
 	// Get the page parameter, defaulting to 1 if not present
-	pageStr := r.URL.Query().Get("page")
+	pageStr := r.FormValue("page")
 	page, err := strconv.Atoi(pageStr)
 	if err != nil || page < 1 {
 		page = 1
@@ -35,9 +35,9 @@ func SearchPage(w http.ResponseWriter, r *http.Request) {
 
 	// Get filter values from the form
 	filters := map[string]string{
-		"orientation": r.URL.Query().Get("orientation"),
-		"size":       r.URL.Query().Get("size"),
-		"color":      r.URL.Query().Get("color"),
+		"orientation": r.FormValue("orientation"),
+		"size":       r.FormValue("size"),
+		"color":      r.FormValue("color"),
 	}
 
 	// Set the number of images per page

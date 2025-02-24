@@ -11,6 +11,7 @@ func InitServe() {
     homeRoutes()
     DetailsRoutes()
     searchRoutes()
+    AboutRoutes()
     
     fmt.Println("Le serveur est opérationel : http://localhost:8080")
     if err := http.ListenAndServe("localhost:8080", nil); err != nil {
