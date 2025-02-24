@@ -36,12 +36,35 @@
         <section>
             <div class="search-catagorize">
                 <form action="/search" method="get">
-                    <div class="select">
-                        <select class="filter-dimensions" name="filter" id="filter">
-                            <option value="1980x1080">1080p</option>
-                            <option value="2560x1440">2k</option>
-                            <option value="3840x2160">4k</option>
-                            <option value="8k">8k</option>
+                    <div class="filter-group">
+                        <select class="filter-select" name="orientation">
+                            <option value="">Orientation</option>
+                            <option value="landscape" {{if eq .Filters.orientation "landscape"}}selected{{end}}>Landscape</option>
+                            <option value="portrait" {{if eq .Filters.orientation "portrait"}}selected{{end}}>Portrait</option>
+                            <option value="square" {{if eq .Filters.orientation "square"}}selected{{end}}>Square</option>
+                        </select>
+                    
+                        <select class="filter-select" name="size">
+                            <option value="">Size</option>
+                            <option value="large" {{if eq .Filters.size "large"}}selected{{end}}>Large (24MP)</option>
+                            <option value="medium" {{if eq .Filters.size "medium"}}selected{{end}}>Medium (12MP)</option>
+                            <option value="small" {{if eq .Filters.size "small"}}selected{{end}}>Small (4MP)</option>
+                        </select>
+                    
+                        <select class="filter-select" name="color">
+                            <option value="">Color</option>
+                            <option value="red" {{if eq .Filters.color "red"}}selected{{end}}>Red</option>
+                            <option value="orange" {{if eq .Filters.color "orange"}}selected{{end}}>Orange</option>
+                            <option value="yellow" {{if eq .Filters.color "yellow"}}selected{{end}}>Yellow</option>
+                            <option value="green" {{if eq .Filters.color "green"}}selected{{end}}>Green</option>
+                            <option value="turquoise" {{if eq .Filters.color "turquoise"}}selected{{end}}>Turquoise</option>
+                            <option value="blue" {{if eq .Filters.color "blue"}}selected{{end}}>Blue</option>
+                            <option value="violet" {{if eq .Filters.color "violet"}}selected{{end}}>Violet</option>
+                            <option value="pink" {{if eq .Filters.color "pink"}}selected{{end}}>Pink</option>
+                            <option value="brown" {{if eq .Filters.color "brown"}}selected{{end}}>Brown</option>
+                            <option value="black" {{if eq .Filters.color "black"}}selected{{end}}>Black</option>
+                            <option value="gray" {{if eq .Filters.color "gray"}}selected{{end}}>Gray</option>
+                            <option value="white" {{if eq .Filters.color "white"}}selected{{end}}>White</option>
                         </select>
                     </div>
                     <input class="search" type="text" name="search-word" placeholder="Search" value="{{.Query}}">

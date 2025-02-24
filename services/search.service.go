@@ -7,13 +7,33 @@ import (
 	"net/url"
 )
 
-func Search_Request(query string, page, perPage int) (HomePagePhotos, int, error) {
+func Search_Request(query string, page, perPage int, filters map[string]string) (HomePagePhotos, int, error) {
 	// URL encode the search query
 	encodedQuery := url.QueryEscape(query)
-	url := fmt.Sprintf("https://api.pexels.com/v1/search?query=%s&page=%d&per_page=%d",
+	
+	// Start building the URL with required parameters
+	baseURL := fmt.Sprintf("https://api.pexels.com/v1/search?query=%s&page=%d&per_page=%d",
 		encodedQuery, page, perPage)
 
-	req, reqErr := http.NewRequest(http.MethodGet, url, nil)
+	// Add optional filters if they are present and not empty
+	params := url.Values{}
+	if orientation, ok := filters["orientation"]; ok && orientation != "" {
+		params.Add("orientation", orientation)
+	}
+	if size, ok := filters["size"]; ok && size != "" {
+		params.Add("size", size)
+	}
+	if color, ok := filters["color"]; ok && color != "" {
+		params.Add("color", color)
+	}
+
+	// Append filters to base URL if any exist
+	finalURL := baseURL
+	if len(params) > 0 {
+		finalURL += "&" + params.Encode()
+	}
+
+	req, reqErr := http.NewRequest(http.MethodGet, finalURL, nil)
 	if reqErr != nil {
 		return HomePagePhotos{}, http.StatusInternalServerError,
 			fmt.Errorf("Error initializing request: %v", reqErr)

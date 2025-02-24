@@ -89,7 +89,7 @@ section {
 
 .search {
   height: 58px;
-  width: 580px;
+  width: 400px; /* Reduced width to make room for filters */
   font-family: "Questrial", serif;
   font-weight: 400;
   font-style: normal;
@@ -98,7 +98,7 @@ section {
   border-radius: 10px;
   border-style: none;
   box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.15);
-  padding-right: 50px; /* Make room for the search icon */
+  padding-right: 50px;
 }
 
 .search::placeholder {
