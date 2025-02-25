@@ -1,37 +1,3 @@
 {
-    "photos": [
-        {
-            "id": 2693208,
-            "src": {
-                "original": "https://images.pexels.com/photos/2693208/pexels-photo-2693208.png",
-                "large2x": "https://images.pexels.com/photos/2693208/pexels-photo-2693208.png",
-                "large": "https://images.pexels.com/photos/2693208/pexels-photo-2693208.png?auto=compress\u0026cs=tinysrgb\u0026h=650\u0026w=940"
-            },
-            "alt": "Dynamic abstract artwork in pink and white acrylic with bold textures.",
-            "photographer": "Anni Roenkae",
-            "photographer_url": ""
-        },
-        {
-            "id": 2387793,
-            "src": {
-                "original": "https://images.pexels.com/photos/2387793/pexels-photo-2387793.jpeg",
-                "large2x": "https://images.pexels.com/photos/2387793/pexels-photo-2387793.jpeg",
-                "large": "https://images.pexels.com/photos/2387793/pexels-photo-2387793.jpeg?auto=compress\u0026cs=tinysrgb\u0026h=650\u0026w=940"
-            },
-            "alt": "Textured black sand with ripples resembling dunes, creating a dark, abstract aesthetic.",
-            "photographer": "Adrien Olichon",
-            "photographer_url": ""
-        },
-        {
-            "id": 14951902,
-            "src": {
-                "original": "https://images.pexels.com/photos/14951902/pexels-photo-14951902.jpeg",
-                "large2x": "https://images.pexels.com/photos/14951902/pexels-photo-14951902.jpeg",
-                "large": "https://images.pexels.com/photos/14951902/pexels-photo-14951902.jpeg?auto=compress\u0026cs=tinysrgb\u0026h=650\u0026w=940"
-            },
-            "alt": "Detailed view of a red Dodge Challenger's taillights, emphasizing sleek design.",
-            "photographer": "Artishmie Robbins",
-            "photographer_url": ""
-        }
-    ]
+    "photos": null
 }

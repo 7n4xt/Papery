@@ -1,6 +1,7 @@
 {{define "search"}}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,12 +9,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&family=Questrial&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&family=Questrial&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="/assets/CSS/home.css">
     <link rel="stylesheet" href="/assets/CSS/universal.css">
     <link rel="stylesheet" href="/assets/CSS/search.css">
     <link rel="icon" href="/assets/Icons/paperyLogo.png" type="image/png">
 </head>
+
 <body>
     <div class="nav-container">
         <nav>
@@ -23,7 +26,7 @@
             <div class="nav-right-section">
                 <a href="/">Home</a>
                 <a href="/favorite">favorite</a>
-                <a href="#">about</a>
+                <a href="/about">about</a>
             </div>
         </nav>
     </div>
@@ -35,7 +38,17 @@
 
         <section>
             <div class="search-catagorize">
-                <form action="/search" method="get">
+                <div class="search-container">
+                    <form action="/search" method="get" class="search-form">
+                        <input class="search" type="text" name="search-word" placeholder="Search" value="{{.Query}}">
+                        <div class="search-icon">
+                            <img src="/assets/Icons/ci--search-magnifying-glass.svg" alt="search-icon">
+                            <input type="submit">
+                        </div>
+                    </form>
+                </div>
+                
+                <div class="filter-container">
                     <div class="filter-group">
                         <select class="filter-select" name="orientation">
                             <option value="">Orientation</option>
@@ -67,12 +80,18 @@
                             <option value="white" {{if eq .Filters.color "white"}}selected{{end}}>White</option>
                         </select>
                     </div>
-                    <input class="search" type="text" name="search-word" placeholder="Search" value="{{.Query}}">
-                    <div class="search-icon">
-                        <img src="/assets/Icons/ci--search-magnifying-glass.svg" alt="search-icon">
-                        <input type="submit">
-                    </div>
-                </form>
+                </div>
+                
+                <div class="categories">
+                    <a href="#">Nature</a>
+                    <a href="#">Mountains</a>
+                    <a href="#">Sunsets & Sunrises</a>
+                    <a href="#">Abstract</a>
+                    <a href="#">Gradients</a>
+                    <a href="#">Classic Cars</a>
+                    <a href="#">Galaxies</a>
+                    <a href="#">Space</a>
+                </div>
             </div>
         </section>
 
@@ -94,41 +113,42 @@
             {{if .HasNextPage}}
             <a href="/search?search-word={{.Query}}&page={{.NextPage}}" class="next-button">Next</a>
             {{end}}
-          </div>
+        </div>
     </main>
     <footer>
         <div class="footer-content">
-          <div class="footer-section">
-            <h3>Papery</h3>
-            <p>Discover and download high-quality wallpapers for your desktop and mobile devices.</p>
-          </div>
-          
-          <div class="footer-section">
-            <h4>Categories</h4>
-            <ul>
-              <li><a href="#">Nature</a></li>
-              <li><a href="#">Abstract</a></li>
-              <li><a href="#">Space</a></li>
-              <li><a href="#">Minimal</a></li>
-            </ul>
-          </div>
-      
-          <div class="footer-section">
-            <h4>Company</h4>
-            <ul>
-              <li><a href="#">About Us</a></li>
-              <li><a href="#">Contact</a></li>
-              <li><a href="#">Privacy Policy</a></li>
-              <li><a href="#">Terms of Service</a></li>
-            </ul>
-          </div>
+            <div class="footer-section">
+                <h3>Papery</h3>
+                <p>Discover and download high-quality wallpapers for your desktop and mobile devices.</p>
+            </div>
+
+            <div class="footer-section">
+                <h4>Categories</h4>
+                <ul>
+                    <li><a href="#">Nature</a></li>
+                    <li><a href="#">Abstract</a></li>
+                    <li><a href="#">Space</a></li>
+                    <li><a href="#">Minimal</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                </ul>
+            </div>
         </div>
-        
+
         <div class="footer-bottom">
-          <p>&copy; 2024 Papery. All rights reserved.</p>
+            <p>&copy; 2024 Papery. All rights reserved.</p>
         </div>
-      </footer>
-    
+    </footer>
+
 </body>
+
 </html>
 {{end}}

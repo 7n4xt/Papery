@@ -22,16 +22,16 @@
 <body>
     <div class="nav-container">
         <nav>
-            <div class="nav-left-section">
-                <p class="logo">Papery</p>
-            </div>
-            <div class="nav-right-section">
-                <a href="/">Home</a>
-                <a href="/favorite">favorite</a>
-                <a href="#">about</a>
-            </div>
+          <div class="nav-left-section">
+            <p class="logo">Papery</p>
+          </div>
+          <div class="nav-right-section">
+            <a href="/">Home</a>
+            <a href="/favorite">favorite</a>
+            <a href="/about">about</a>
+          </div>
         </nav>
-    </div>
+      </div>
 
 
 
@@ -100,33 +100,6 @@
     </footer>
     <script src="/assets/js/favorites.js"></script>
 </body>
-
-<script>
-    function removeFavorite(photoId, button) {
-        fetch(`/api/favorites/remove?id=${photoId}`, {
-            method: 'DELETE',
-        })
-            .then(response => {
-                if (response.ok) {
-                    // Remove the photo container from the grid
-                    button.parentElement.remove();
-
-                    // Check if there are any photos left
-                    const photosGrid = document.querySelector('.Photos-grid');
-                    if (photosGrid && photosGrid.children.length === 0) {
-                        const photosContainer = document.querySelector('.photos');
-                        photosContainer.innerHTML = `
-                    <div class="empty-favorites">
-                        <h2 class="favorites-title">No Favorites Yet</h2>
-                        <p class="favorites-description">Start adding your favorite wallpapers from the home page to build your personal collection!</p>
-                    </div>
-                `;
-                    }
-                }
-            })
-            .catch(error => console.error('Error:', error));
-    }
-</script>
 
 </html>
 {{end}}

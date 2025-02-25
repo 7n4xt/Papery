@@ -74,22 +74,35 @@ animation: r var(--d) linear infinite;
 section {
   margin-top: 60px;
 }
+
 .search-catagorize {
   display: flex;
   justify-content: center;
-  gap: 10px;
+  align-content: center;
+  flex-direction: column;
   align-items: center;
+  gap: 20px;
+  width: 1fr;
 }
 
-.search-catagorize form {
+.search-container {
   position: relative;
   display: flex;
   align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 800px;
+}
+
+.search-form {
+  display: flex;
+  width: 100%;
+  position: relative;
 }
 
 .search {
   height: 58px;
-  width: 400px; /* Reduced width to make room for filters */
+  width: 100%;
   font-family: "Questrial", serif;
   font-weight: 400;
   font-style: normal;
@@ -127,13 +140,58 @@ section {
   transform: scale(1.1);
 }
 
+.filter-container {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+  justify-content: center;
+}
+
+.filter-group {
+  display: flex;
+  gap: 10px;
+}
+
+.filter-select {
+  appearance: none;
+  outline: none;
+  border: 0;
+  padding: 0 1em;
+  color: #000000;
+  background-color: var(--darkgray);
+  cursor: pointer;
+  font-family: "Questrial", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: medium;
+  height: 3em;
+  border-radius: 10px;
+  min-width: 120px;
+  transition: all 0.3s;
+}
+
+.filter-select:hover {
+  background-color: #e6e6e6;
+}
+
+.filter-select:after {
+  content: '\25BC';
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 1em;
+  background-color: #f0f0f0;
+  transition: .25s all ease;
+  pointer-events: none;
+}
 
 .categories {
-  display: grid;
-  grid-template-columns: 90px 90px 150px 90px 90px 90px 90px 90px ;
+  display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   gap: 15px;
   margin-top: 25px;
+  max-width: 800px;
 }
 
 .categories a {
@@ -142,17 +200,19 @@ section {
   font-style: normal;
   font-size: medium;
   transition: all 0.2s;
+  padding: 5px 10px;
 }
+
 .categories a:link {
   color: #262626c4;
   position: relative;
-  text-decoration:underline;
+  text-decoration: underline;
 }
 
 .categories a:visited {
   color: #262626c4;
   position: relative;
-  text-decoration:underline;
+  text-decoration: underline;
 }
 
 .categories a:hover {
@@ -162,5 +222,3 @@ section {
 .categories a:active {
   color: #dfdfdf;
 }
-
-

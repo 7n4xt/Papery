@@ -21,10 +21,7 @@ type SearchPageData struct {
 func SearchPage(w http.ResponseWriter, r *http.Request) {
 	// Get the search query from form values
 	query := r.FormValue("search-word")
-	if query == "" {
-		http.Redirect(w, r, "/", http.StatusSeeOther)
-		return
-	}
+
 
 	// Get the page parameter, defaulting to 1 if not present
 	pageStr := r.FormValue("page")
