@@ -125,14 +125,28 @@ papery/
     ├── search.html              # Search page template
     └── templates.go             # Template handler
 ```
+## 📡 Endpoints
+
+# Home
+- GET / - Home page displaying a collection of wallpapers.
+
+# Search
+- GET /search - Search page with query parameters for filtering wallpapers.
+
+# Details
+- GET /details/{id} - Details page for a specific wallpaper.
+
+# Favorites
+- GET /favorite - Favorites page displaying user's favorite wallpapers.
+- POST /api/favorites/add - Add a wallpaper to favorites.
+- DELETE /api/favorites/remove - Remove a wallpaper from favorites.
+
+# About
+- GET /about - About page with information about the application.
 
 ## 🤝 Author
 
 ESUGHI Abdulmalek
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## 🙏 Acknowledgments
 
