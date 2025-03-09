@@ -127,21 +127,21 @@ papery/
 ```
 ## 📡 Endpoints
 
-# Home
+### Home
 - GET / - Home page displaying a collection of wallpapers.
 
-# Search
+### Search
 - GET /search - Search page with query parameters for filtering wallpapers.
 
-# Details
+### Details
 - GET /details/{id} - Details page for a specific wallpaper.
 
-# Favorites
+### Favorites
 - GET /favorite - Favorites page displaying user's favorite wallpapers.
 - POST /api/favorites/add - Add a wallpaper to favorites.
 - DELETE /api/favorites/remove - Remove a wallpaper from favorites.
 
-# About
+### About
 - GET /about - About page with information about the application.
 
 ## 🤝 Author
