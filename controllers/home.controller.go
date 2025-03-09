@@ -17,7 +17,7 @@ func HomePage(w http.ResponseWriter, r *http.Request) {
     }
 
     // Set the number of images per page
-    perPage := 35
+    perPage := 48
 
     // Fetch the photos from the API with pagination
     data, statusCode, err := services.HomePagePhotosRequest(page, perPage)

@@ -10,7 +10,7 @@ import (
 func Search_Request(query string, page, perPage int, filters map[string]string) (HomePagePhotos, int, error) {
 	// URL encode the search query
 	encodedQuery := url.QueryEscape(query)
-	
+
 	// Start building the URL with required parameters
 	baseURL := fmt.Sprintf("https://api.pexels.com/v1/search?query=%s&page=%d&per_page=%d",
 		encodedQuery, page, perPage)

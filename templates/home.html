@@ -68,65 +68,69 @@
     </div>
   </main>
 
-  <section>
-    <div class="search-catagorize">
-      <div class="search-container">
-        <form action="/search" method="get" class="search-form">
-          <input class="search" type="text" name="search-word" placeholder="Search" value="{{.Query}}">
-          <div class="search-icon">
-            <img src="/assets/Icons/ci--search-magnifying-glass.svg" alt="search-icon">
-            <input type="submit">
-          </div>
-        </form>
-      </div>
-      
-      <div class="filter-container">
-        <div class="filter-group">
-          <select class="filter-select" name="orientation">
-            <option value="">Orientation</option>
-            <option value="landscape" {{if eq .Filters.orientation "landscape"}}selected{{end}}>Landscape</option>
-            <option value="portrait" {{if eq .Filters.orientation "portrait"}}selected{{end}}>Portrait</option>
-            <option value="square" {{if eq .Filters.orientation "square"}}selected{{end}}>Square</option>
-          </select>
-      
-          <select class="filter-select" name="size">
-            <option value="">Size</option>
-            <option value="large" {{if eq .Filters.size "large"}}selected{{end}}>Large (24MP)</option>
-            <option value="medium" {{if eq .Filters.size "medium"}}selected{{end}}>Medium (12MP)</option>
-            <option value="small" {{if eq .Filters.size "small"}}selected{{end}}>Small (4MP)</option>
-          </select>
-      
-          <select class="filter-select" name="color">
-            <option value="">Color</option>
-            <option value="red" {{if eq .Filters.color "red"}}selected{{end}}>Red</option>
-            <option value="orange" {{if eq .Filters.color "orange"}}selected{{end}}>Orange</option>
-            <option value="yellow" {{if eq .Filters.color "yellow"}}selected{{end}}>Yellow</option>
-            <option value="green" {{if eq .Filters.color "green"}}selected{{end}}>Green</option>
-            <option value="turquoise" {{if eq .Filters.color "turquoise"}}selected{{end}}>Turquoise</option>
-            <option value="blue" {{if eq .Filters.color "blue"}}selected{{end}}>Blue</option>
-            <option value="violet" {{if eq .Filters.color "violet"}}selected{{end}}>Violet</option>
-            <option value="pink" {{if eq .Filters.color "pink"}}selected{{end}}>Pink</option>
-            <option value="brown" {{if eq .Filters.color "brown"}}selected{{end}}>Brown</option>
-            <option value="black" {{if eq .Filters.color "black"}}selected{{end}}>Black</option>
-            <option value="gray" {{if eq .Filters.color "gray"}}selected{{end}}>Gray</option>
-            <option value="white" {{if eq .Filters.color "white"}}selected{{end}}>White</option>
-          </select>
+<section>
+  <div class="search-catagorize">
+    <div class="search-container">
+      <form action="/search" method="get" class="search-form" id="search-form">
+        <input class="search" type="text" name="search-word" placeholder="Search for wallpapers..." value="{{.Query}}">
+        <div class="search-icon">
+          <img src="/assets/Icons/ci--search-magnifying-glass.svg" alt="search-icon">
+          <input type="submit" value="">
         </div>
-      </div>
-      
-      <div class="categories">
-        <a href="/search?search-word=Nature">Nature</a>
-        <a href="/search?search-word=Mountains">Mountains</a>
-        <a href="/search?search-word=Sunsets+%26+Sunrises">Sunsets & Sunrises</a>
-        <a href="/search?search-word=Abstract">Abstract</a>
-        <a href="/search?search-word=Gradients">Gradients</a>
-        <a href="/search?search-word=Classic+Cars">Classic Cars</a>
-        <a href="/search?search-word=Galaxies">Galaxies</a>
-        <a href="/search?search-word=Space">Space</a>
+      </form>
+    </div>
+    
+    <div class="filter-container">
+      <div class="filter-group">
+        <select class="filter-select" name="orientation" id="orientation-filter">
+          <option value="">Orientation</option>
+          <option value="landscape" {{if eq .Filters.orientation "landscape"}}selected{{end}}>Landscape</option>
+          <option value="portrait" {{if eq .Filters.orientation "portrait"}}selected{{end}}>Portrait</option>
+          <option value="square" {{if eq .Filters.orientation "square"}}selected{{end}}>Square</option>
+        </select>
+    
+        <select class="filter-select" name="size" id="size-filter">
+          <option value="">Size</option>
+          <option value="large" {{if eq .Filters.size "large"}}selected{{end}}>Large (24MP)</option>
+          <option value="medium" {{if eq .Filters.size "medium"}}selected{{end}}>Medium (12MP)</option>
+          <option value="small" {{if eq .Filters.size "small"}}selected{{end}}>Small (4MP)</option>
+        </select>
+    
+        <select class="filter-select" name="color" id="color-filter">
+          <option value="">Color</option>
+          <option value="red" {{if eq .Filters.color "red"}}selected{{end}}>Red</option>
+          <option value="orange" {{if eq .Filters.color "orange"}}selected{{end}}>Orange</option>
+          <option value="yellow" {{if eq .Filters.color "yellow"}}selected{{end}}>Yellow</option>
+          <option value="green" {{if eq .Filters.color "green"}}selected{{end}}>Green</option>
+          <option value="turquoise" {{if eq .Filters.color "turquoise"}}selected{{end}}>Turquoise</option>
+          <option value="blue" {{if eq .Filters.color "blue"}}selected{{end}}>Blue</option>
+          <option value="violet" {{if eq .Filters.color "violet"}}selected{{end}}>Violet</option>
+          <option value="pink" {{if eq .Filters.color "pink"}}selected{{end}}>Pink</option>
+          <option value="brown" {{if eq .Filters.color "brown"}}selected{{end}}>Brown</option>
+          <option value="black" {{if eq .Filters.color "black"}}selected{{end}}>Black</option>
+          <option value="gray" {{if eq .Filters.color "gray"}}selected{{end}}>Gray</option>
+          <option value="white" {{if eq .Filters.color "white"}}selected{{end}}>White</option>
+        </select>
       </div>
     </div>
-  </section>
+    
+    <div class="categories">
+      <a href="/search?search-word=Nature">Nature</a>
+      <a href="/search?search-word=Mountains">Mountains</a>
+      <a href="/search?search-word=Sunsets+%26+Sunrises">Sunsets & Sunrises</a>
+      <a href="/search?search-word=Abstract">Abstract</a>
+      <a href="/search?search-word=Gradients">Gradients</a>
+      <a href="/search?search-word=Classic+Cars">Classic Cars</a>
+      <a href="/search?search-word=Galaxies">Galaxies</a>
+      <a href="/search?search-word=Space">Space</a>
+      <a href="/search?search-word=Minimal">Minimal</a>
+      <a href="/search?search-word=City">City</a>
+    </div>
+  </div>
+</section>
   
+  <hr class="divider">
+
   <div class="photos">
     <div class="Photos-grid">
       {{range .Photos}}
@@ -178,6 +182,70 @@
       <p>&copy; 2024 Papery. All rights reserved.</p>
     </div>
   </footer>
+
+<script>
+  // Add this script to your home.html before the closing </body> tag
+document.addEventListener('DOMContentLoaded', function() {
+  const searchForm = document.getElementById('search-form');
+  const orientationFilter = document.getElementById('orientation-filter');
+  const sizeFilter = document.getElementById('size-filter');
+  const colorFilter = document.getElementById('color-filter');
+  
+  // Function to handle filter changes
+  function handleFilterChange() {
+    // Only add filters to form if they have a value
+    if (orientationFilter.value) {
+      const orientationInput = document.createElement('input');
+      orientationInput.type = 'hidden';
+      orientationInput.name = 'orientation';
+      orientationInput.value = orientationFilter.value;
+      searchForm.appendChild(orientationInput);
+    }
+    
+    if (sizeFilter.value) {
+      const sizeInput = document.createElement('input');
+      sizeInput.type = 'hidden';
+      sizeInput.name = 'size';
+      sizeInput.value = sizeFilter.value;
+      searchForm.appendChild(sizeInput);
+    }
+    
+    if (colorFilter.value) {
+      const colorInput = document.createElement('input');
+      colorInput.type = 'hidden';
+      colorInput.name = 'color';
+      colorInput.value = colorFilter.value;
+      searchForm.appendChild(colorInput);
+    }
+    
+    // Submit the form
+    searchForm.submit();
+  }
+  
+  // Add event listeners to filters
+  orientationFilter.addEventListener('change', handleFilterChange);
+  sizeFilter.addEventListener('change', handleFilterChange);
+  colorFilter.addEventListener('change', handleFilterChange);
+  
+  // Enhance search experience - focus when clicking anywhere in container
+  const searchContainer = document.querySelector('.search-container');
+  const searchInput = document.querySelector('.search');
+  
+  searchContainer.addEventListener('click', function(e) {
+    if (e.target !== searchInput) {
+      searchInput.focus();
+    }
+  });
+  
+  // Clear search with Escape key
+  searchInput.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      searchInput.value = '';
+      searchInput.focus();
+    }
+  });
+});
+</script>
 
 </body>
 

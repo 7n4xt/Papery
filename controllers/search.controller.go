@@ -38,7 +38,7 @@ func SearchPage(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// Set the number of images per page
-	perPage := 37
+	perPage := 48
 
 	// Fetch photos based on search query with pagination and filters
 	data, status, err := services.Search_Request(query, page, perPage, filters)

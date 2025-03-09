@@ -1,3 +1,26 @@
 {
-    "photos": null
+    "photos": [
+        {
+            "id": 2317711,
+            "src": {
+                "original": "https://images.pexels.com/photos/2317711/pexels-photo-2317711.jpeg",
+                "large2x": "https://images.pexels.com/photos/2317711/pexels-photo-2317711.jpeg",
+                "large": "https://images.pexels.com/photos/2317711/pexels-photo-2317711.jpeg?auto=compress\u0026cs=tinysrgb\u0026h=650\u0026w=940"
+            },
+            "alt": "Dynamic and vibrant abstract artwork featuring glossy reflections and bold colors.",
+            "photographer": "Anni Roenkae",
+            "photographer_url": ""
+        },
+        {
+            "id": 2110951,
+            "src": {
+                "original": "https://images.pexels.com/photos/2110951/pexels-photo-2110951.jpeg",
+                "large2x": "https://images.pexels.com/photos/2110951/pexels-photo-2110951.jpeg",
+                "large": "https://images.pexels.com/photos/2110951/pexels-photo-2110951.jpeg?auto=compress\u0026cs=tinysrgb\u0026h=650\u0026w=940"
+            },
+            "alt": "Vibrant abstract artwork featuring blue and white textured patterns with a dynamic feel.",
+            "photographer": "Emre Can Acer",
+            "photographer_url": ""
+        }
+    ]
 }
