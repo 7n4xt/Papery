@@ -21,6 +21,28 @@
             "alt": "Vibrant abstract artwork featuring blue and white textured patterns with a dynamic feel.",
             "photographer": "Emre Can Acer",
             "photographer_url": ""
+        },
+        {
+            "id": 2078266,
+            "src": {
+                "original": "https://images.pexels.com/photos/2078266/pexels-photo-2078266.jpeg",
+                "large2x": "https://images.pexels.com/photos/2078266/pexels-photo-2078266.jpeg",
+                "large": "https://images.pexels.com/photos/2078266/pexels-photo-2078266.jpeg?auto=compress\u0026cs=tinysrgb\u0026h=650\u0026w=940"
+            },
+            "alt": "A subtle abstract background with soft green gradient tones, ideal for digital designs.",
+            "photographer": "Martin  Péchy",
+            "photographer_url": ""
+        },
+        {
+            "id": 4870999,
+            "src": {
+                "original": "https://images.pexels.com/photos/4870999/pexels-photo-4870999.jpeg",
+                "large2x": "https://images.pexels.com/photos/4870999/pexels-photo-4870999.jpeg",
+                "large": "https://images.pexels.com/photos/4870999/pexels-photo-4870999.jpeg?auto=compress\u0026cs=tinysrgb\u0026h=650\u0026w=940"
+            },
+            "alt": "Abstract image featuring blue and white blurred shapes, ideal for modern art themes.",
+            "photographer": "ROMAN ODINTSOV",
+            "photographer_url": ""
         }
     ]
 }

@@ -72,13 +72,16 @@
   <div class="search-catagorize">
     <div class="search-container">
       <form action="/search" method="get" class="search-form" id="search-form">
-        <input class="search" type="text" name="search-word" placeholder="Search for wallpapers..." value="{{.Query}}">
-        <div class="search-icon">
-          <img src="/assets/Icons/ci--search-magnifying-glass.svg" alt="search-icon">
-          <input type="submit" value="">
-        </div>
+          <input class="search" type="text" name="search-word" placeholder="Search for wallpapers..." value="{{.Query}}">
+          <input type="hidden" name="orientation" value="{{.Filters.orientation}}">
+          <input type="hidden" name="size" value="{{.Filters.size}}">
+          <input type="hidden" name="color" value="{{.Filters.color}}">
+          <div class="search-icon">
+              <img src="/assets/Icons/ci--search-magnifying-glass.svg" alt="search-icon">
+              <input type="submit" value="">
+          </div>
       </form>
-    </div>
+  </div>
     
     <div class="filter-container">
       <div class="filter-group">
@@ -160,20 +163,20 @@
       <div class="footer-section">
         <h4>Categories</h4>
         <ul>
-          <li><a href="#">Nature</a></li>
-          <li><a href="#">Abstract</a></li>
-          <li><a href="#">Space</a></li>
-          <li><a href="#">Minimal</a></li>
+          <li><a href="/search?search-word=Abstract">Abstract</a></li>
+          <li><a href="/search?search-word=Gradients">Gradients</a></li>
+          <li><a href="/search?search-word=Classic+Cars">Classic Cars</a></li>
+          <li><a href="/search?search-word=Galaxies">Galaxies</a></li>
         </ul>
       </div>
 
       <div class="footer-section">
         <h4>Company</h4>
         <ul>
-          <li><a href="#">About Us</a></li>
-          <li><a href="#">Contact</a></li>
-          <li><a href="#">Privacy Policy</a></li>
-          <li><a href="#">Terms of Service</a></li>
+          <li><a href="/about">About Us</a></li>
+          <li><a href="/favorite">Favorite</a></li>
+          <li><a href="/">Home page</a></li>
+          <li><a href="/search">Search</a></li>
         </ul>
       </div>
     </div>
@@ -182,71 +185,7 @@
       <p>&copy; 2024 Papery. All rights reserved.</p>
     </div>
   </footer>
-
-<script>
-  // Add this script to your home.html before the closing </body> tag
-document.addEventListener('DOMContentLoaded', function() {
-  const searchForm = document.getElementById('search-form');
-  const orientationFilter = document.getElementById('orientation-filter');
-  const sizeFilter = document.getElementById('size-filter');
-  const colorFilter = document.getElementById('color-filter');
-  
-  // Function to handle filter changes
-  function handleFilterChange() {
-    // Only add filters to form if they have a value
-    if (orientationFilter.value) {
-      const orientationInput = document.createElement('input');
-      orientationInput.type = 'hidden';
-      orientationInput.name = 'orientation';
-      orientationInput.value = orientationFilter.value;
-      searchForm.appendChild(orientationInput);
-    }
-    
-    if (sizeFilter.value) {
-      const sizeInput = document.createElement('input');
-      sizeInput.type = 'hidden';
-      sizeInput.name = 'size';
-      sizeInput.value = sizeFilter.value;
-      searchForm.appendChild(sizeInput);
-    }
-    
-    if (colorFilter.value) {
-      const colorInput = document.createElement('input');
-      colorInput.type = 'hidden';
-      colorInput.name = 'color';
-      colorInput.value = colorFilter.value;
-      searchForm.appendChild(colorInput);
-    }
-    
-    // Submit the form
-    searchForm.submit();
-  }
-  
-  // Add event listeners to filters
-  orientationFilter.addEventListener('change', handleFilterChange);
-  sizeFilter.addEventListener('change', handleFilterChange);
-  colorFilter.addEventListener('change', handleFilterChange);
-  
-  // Enhance search experience - focus when clicking anywhere in container
-  const searchContainer = document.querySelector('.search-container');
-  const searchInput = document.querySelector('.search');
-  
-  searchContainer.addEventListener('click', function(e) {
-    if (e.target !== searchInput) {
-      searchInput.focus();
-    }
-  });
-  
-  // Clear search with Escape key
-  searchInput.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') {
-      searchInput.value = '';
-      searchInput.focus();
-    }
-  });
-});
-</script>
-
+  <script src="/assets/js/filters.js"></script>
 </body>
 
 </html>

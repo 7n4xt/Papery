@@ -22,7 +22,6 @@ func SearchPage(w http.ResponseWriter, r *http.Request) {
 	// Get the search query from form values
 	query := r.FormValue("search-word")
 
-
 	// Get the page parameter, defaulting to 1 if not present
 	pageStr := r.FormValue("page")
 	page, err := strconv.Atoi(pageStr)
@@ -33,8 +32,8 @@ func SearchPage(w http.ResponseWriter, r *http.Request) {
 	// Get filter values from the form
 	filters := map[string]string{
 		"orientation": r.FormValue("orientation"),
-		"size":       r.FormValue("size"),
-		"color":      r.FormValue("color"),
+		"size":        r.FormValue("size"),
+		"color":       r.FormValue("color"),
 	}
 
 	// Set the number of images per page
